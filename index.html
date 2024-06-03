@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.4.26/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <h1><strong> Administración de videojuegos</strong></h1>
+        <div id="contNuevo" >
+          <h2 id="subtitulo"><strong>Nuevo videojuego</strong></h2>
+            <form class="formulario" @submit.prevent="agregarFilas">
+                <label for="game">NOMBRE</label>
+                <br>
+                <input type="text" id="name_game" v-model="nombre" placeholder="Nombre del juego" required>
+                <br>
+                <label id="plataforma">Plataforma</label> 
+                <br> 
+                <select id="platform_game"  v-model="platform_game" required>
+                    <option value="" disabled>PC | PlayStation | Xbox One</option>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="Xbox One">Xbox One</option>
+                </select>
+                <br>
+                <label id="estado">Estado</label> 
+                <br> 
+                <select id="state_game"  v-model="estate_game" class aria-label="Default select example" required>
+                  <label>Estado</label>
+                    <option value="" disabled>Pendiente | Jugando | Completado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Jugando">Jugando</option>
+                    <option value="Completado">Completado</option>
+                </select>
+                <br>
+                <label for="puntaje">Puntaje</label>
+                <br>
+                <select id="score_game" required v-model="score_game">
+                    <option value=""  disabled>Puntaje del 1 al 10</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <br><br>
+                <input class="btn_Registrar" type="submit"  value="Registrar Videojuego">
+            </form>
+
+        </div>
+        
+        <div id="cargados">
+          <h2 id="subtitulo"><strong>BUSCAR</strong></h2>
+            <br>
+            <label for="buscarName" >Nombre</label>
+            <input type="text" id="buscarName" v-model="buscarName"class="cajaBuscar">
+            
+            <label for="buscarPlataforma">Plataforma</label>
+            <select id="buscarPlataforma" v-model="buscarPlataforma" class="cajaBuscar">
+                <option value=""></option>
+                <option value="PC">PC</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="Xbox One">Xbox One</option>
+            </select>
+
+            <label for="buscarEstado">Estado</label>
+            <select id="buscarEstado" v-model="buscarEstado" class="cajaBuscar">
+                <option value=""></option>
+                <option value="Pendiente">Pendiente</option>  
+                <option value="Jugando">Jugando</option>  
+                <option value="Completado">Completado</option>
+            </select> 
+
+            <button @click="buscar">Buscar</button>
+        </div>
+
+        <div id="resultados">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Plataforma</th>
+                    <th>Estado</th>
+                    <th>Puntaje</th>
+                    <th>Más Info</th>
+                </tr>
+                <tr v-for="(fila, index) in filasFiltradas" :key="index">
+                    <td>{{ fila.name_game }}</td>
+                    <td>{{ fila.platform_game }}</td>
+                    <td>{{ fila.state_game }}</td>
+                    <td>{{ fila.score_game }}</td>
+                    <td><button @click="mostrarInformacion(fila)">+</button></td>
+                </tr>
+                
+            </table>
+        </div>
+        <div v-if="info" id="infoDetallada">
+            <h2 id="subtitulo"><strong>Información Detallada</strong></h2>
+            <ul>
+                <li>Nombre: {{ descripcion.name_game }}</li>
+                <li>Plataforma: {{ descripcion.platform_game }}</li>
+                <li>Estado: {{ descripcion.state_game }}</li>
+                <li>Puntaje: {{ descripcion.score_game }}</li>
+            </ul>
+        </div>
+      
+    </div>
+    <script src="formulario.js"></script>
+    <script>app.mount('#app')</script>
+</body>
+</html>
+

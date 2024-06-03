@@ -1,0 +1,106 @@
+.contenedor{
+width: auto;
+height: auto;
+background-color: transparent;
+scroll-behavior: smooth;
+
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    
+}
+
+
+
+#subtitulo{
+text-align: center;
+
+
+}
+
+h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    
+}
+
+#label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.normal {
+    text-align: center;
+    width: 600px;
+    border: 2px solid #000000;
+    margin: auto;
+    
+    }
+    .normal th, .normal td {
+    border: 1px solid #000000;
+    }
+    
+
+#datos{
+    background-color:transparent;
+    height: auto;
+    width: auto;
+    padding: 10px;
+}
+#app{
+    margin: 20px;
+}
+
+#infoDetallada{
+    height: auto;
+    width: 700px;
+    background-color: #adadad;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}  
+
+#contNuevo{
+    text-align: center;
+    height: 360px;
+    width: 700px;
+    background-color: #afafaf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 10px;
+    float: inline-start;
+    position: relative;
+}
+
+#cargados, #resultados{
+    text-align: center;
+    height: auto;
+    width: 700px;
+    background-color: #adadad;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 10px;
+    float: inline-start;
+    position: relative;
+}
+.cajaBuscar{
+    margin: 10px;
+}
+#cargados{
+    height: auto;
+    width: 700px;
+    background-color: #adadad;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 10px;
+    float: inline-start;
+    position: relative;
+    
+}
